@@ -1,0 +1,5 @@
+vercel-deploy-toolbar:
+  version: VERSION
+  css:
+    component:
+      css/vercel-deploy.toolbar.css: {}

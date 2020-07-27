@@ -1,0 +1,26 @@
+vercel_deploy:
+  path: '/admin/config/development/vercel-deploy'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Vercel Deploy'
+  requirements:
+    _permission: 'administer vercel deploy+access vercel deploy-hook+vercel deploy-hook button toolbar'
+
+vercel_deploy.settings:
+  path: '/admin/config/development/vercel-deploy/settings'
+  defaults:
+    _form: 'Drupal\vercel_deploy\Form\SettingsForm'
+    _title: 'Settings'
+  requirements:
+    _permission: 'administer vercel deploy'
+
+vercel_deploy.deploy_hooks:
+  path: '/admin/config/development/vercel-deploy/deploy-hooks'
+  defaults:
+    _form: 'Drupal\vercel_deploy\Form\DeployHooksForm'
+    _title: 'Deploy Hook'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'access vercel deploy-hook'
+

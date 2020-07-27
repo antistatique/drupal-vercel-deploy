@@ -1,0 +1,19 @@
+vercel_deploy:
+  route_name: vercel_deploy
+  title: 'Vercel Deploy'
+  description: 'Alter settings and manage your Vercel Deploy integration.'
+  parent: system.admin_config_development
+
+vercel_deploy.deploy_hooks:
+  title: 'Deploy Hooks'
+  description: 'Triggering a Deploy Hook.'
+  route_name: 'vercel_deploy.deploy_hooks'
+  parent: 'vercel_deploy'
+  weight: -10
+
+vercel_deploy.settings:
+  title: 'Settings'
+  description: 'Manage your Vercel Deploy integration.'
+  route_name: 'vercel_deploy.settings'
+  parent: 'vercel_deploy'
+  weight: 100

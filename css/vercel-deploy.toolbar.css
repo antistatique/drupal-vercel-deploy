@@ -1,0 +1,42 @@
+/**
+ * @file
+ * Styling for vercel-deploy toolbar module.
+ */
+
+.toolbar .toolbar-tray-vertical .edit-vercel-deploy-toolbar {
+  text-align: right; /* LTR */
+  padding: 1em;
+}
+
+[dir="rtl"] .toolbar .toolbar-tray-vertical .edit-vercel-deploy-toolbar {
+  text-align: left;
+}
+
+.toolbar .toolbar-tray-horizontal .edit-vercel-deploy-toolbar {
+  float: right; /* LTR */
+}
+
+[dir="rtl"] .toolbar .toolbar-tray-horizontal .edit-vercel-deploy-toolbar {
+  float: left;
+}
+
+.toolbar .toolbar-tray-horizontal .toolbar-menu {
+  float: left; /* LTR */
+}
+
+[dir="rtl"] .toolbar .toolbar-tray-horizontal .toolbar-menu {
+  float: right;
+}
+
+.toolbar .toolbar-bar .toolbar-icon-vercel-deploy:before {
+  background-image: url(../icons/vercel.svg);
+}
+
+.toolbar-bar .toolbar-icon-vercel-deploy:active:before,
+.toolbar-bar .toolbar-icon-vercel-deploy.is-active:before {
+  background-image: url(../icons/vercel.svg);
+}
+
+.toolbar-horizontal .toolbar-horizontal-item-hidden {
+  display: none;
+}
