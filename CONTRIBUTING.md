@@ -14,7 +14,7 @@ Github repo
 
 Drupal repo
   ```
-  $ git remote add github https://github.com/antistatique/drupal-vercel-deploy.git
+  $ git remote add github git@github.com:antistatique/drupal-vercel-deploy.git
   ```
 
 ## 🔧 Prerequisites
