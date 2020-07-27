@@ -1,0 +1,8 @@
+name: Vercel Deploy
+description: Allow Vercel Vercel deployments integration with the corresponding permission set.
+package: Utility
+type: module
+core_version_requirement: ^8.8 || ^9
+
+dependencies:
+  - drupal:toolbar

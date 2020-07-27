@@ -1,0 +1,29 @@
+{
+  "name": "drupal/vercel_deploy",
+  "description": "Allows you to integrate Vercel deployments with Drupal.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/vercel_deploy",
+  "authors": [
+    {
+      "name": "Antistatique",
+      "email": "info@antistatique.net",
+      "homepage": "https://www.antistatique.net",
+      "role": "Sponsor"
+    },
+    {
+      "name": "Kevin Wenger",
+      "email": "contact@kevin-wenger.ch",
+      "homepage": "https://www.drupal.org/u/wengerk",
+      "role": "Author & Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/vercel_deploy"
+  },
+  "license": "GPL-2.0-or-later",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.0.1",
+    "drupal/coder": "^8.3.1",
+    "wapmorgan/php-code-fixer": "^2.0"
+  }
+}
