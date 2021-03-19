@@ -136,14 +136,14 @@ class DeployHooksForm extends ConfirmFormBase {
     $context['sandbox']['count'] += 1;
     $context['message'] = new TranslatableMarkup('Initialize a new Vercel deployment for %url.', ['%url' => $url]);
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
     // Receive server response.
-    $response = curl_exec($ch);
-    curl_close($ch);
+    $response = curl_exec($curl);
+    curl_close($curl);
 
     $decoded = json_decode($response, TRUE);
 

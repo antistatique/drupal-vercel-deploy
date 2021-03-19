@@ -35,7 +35,7 @@ Once run, you will be able to access to your fresh installed Drupal on `http://l
     (get a coffee, this will take some time...)
     docker-compose up -d drupal
     docker-compose exec -u www-data drupal drush site-install standard --db-url="mysql://drupal:drupal@db/drupal" -y
-    
+
     # You may be interesed by reseting the admin passowrd of your Docker and install the module using those cmd.
     docker-compose exec drupal drush user:password admin admin
     docker-compose exec drupal drush en vercel_deploy -y
@@ -46,45 +46,81 @@ We use the [Docker for Drupal Contrib images](https://hub.docker.com/r/wengerk/d
 
 Run testing by stopping at first failure using the following command:
 
-    docker-compose exec -u www-data drupal phpunit --group=vercel_deploy --no-coverage --stop-on-failure
+    docker-compose exec -u www-data drupal phpunit --group=vercel_deploy --no-coverage --stop-on-failure --configuration=/var/www/html/phpunit.xml
 
 ## 🚔 Check Drupal coding standards & Drupal best practices
 
-You need to run composer before using PHPCS. Then register the Drupal
-and DrupalPractice Standard with PHPCS:
-`./vendor/bin/phpcs --config-set installed_paths
-`pwd`/vendor/drupal/coder/coder_sniffer`
+During Docker build, the following Static Analyzers will be installed on the Docker `drupal` via Composer:
+
+- `drupal/coder^8.3.1`  (including `squizlabs/php_codesniffer` & `phpstan/phpstan`),
+
+The following Analyzer will be downloaded & installed as PHAR:
+
+- `phpmd/phpmd`
+- `sebastian/phpcpd`
+- `wapmorgan/PhpDeprecationDetector`
 
 ### Command Line Usage
 
-Check Drupal coding standards:
+    ./scripts/hooks/post-commit
+    # or run command on the container itself
+    docker-compose exec drupal bash
+
+#### Running Code Sniffer Drupal & DrupalPractice
+
+https://github.com/squizlabs/PHP_CodeSniffer
+
+PHP_CodeSniffer is a set of two PHP scripts; the main `phpcs` script that tokenizes PHP, JavaScript and CSS files to
+detect violations of a defined coding standard, and a second `phpcbf` script to automatically correct coding standard
+violations.
+PHP_CodeSniffer is an essential development tool that ensures your code remains clean and consistent.
 
   ```
-  $ ./vendor/bin/phpcs --standard=Drupal --colors \
-  --extensions=php,module,inc,install,test,profile,theme,css,info,md \
-  --ignore=*/vendor/* ./
-  ```
-
-Check Drupal best practices:
-
-  ```
-  $ ./vendor/bin/phpcs --standard=DrupalPractice --colors \
-  --extensions=php,module,inc,install,test,profile,theme,css,info,md \
-  --ignore=*/vendor/* ./
+  $ docker-compose exec drupal ./vendor/bin/phpcs ./web/modules/contrib/vercel_deploy/
   ```
 
 Automatically fix coding standards
 
   ```
-  $ ./vendor/bin/phpcbf --standard=Drupal --colors \
-  --extensions=php,module,inc,install,test,profile,theme,css,info \
-  --ignore=*/vendor/* ./
+  $ docker-compose exec drupal ./vendor/bin/phpcbf ./web/modules/contrib/vercel_deploy/
+  ```
+
+#### Running PHP Mess Detector
+
+https://github.com/phpmd/phpmd
+
+Detect overcomplicated expressions & Unused parameters, methods, properties.
+
+  ```
+  $ docker-compose exec drupal phpmd ./web/modules/contrib/vercel_deploy/ text ./phpmd.xml \
+  --suffixes php,module,inc,install,test,profile,theme,css,info,txt --exclude *Test.php,*vendor/*
+  ```
+
+#### Running PHP Copy/Paste Detector
+
+https://github.com/sebastianbergmann/phpcpd
+
+`phpcpd` is a Copy/Paste Detector (CPD) for PHP code.
+
+  ```
+  $ docker-compose exec drupal phpcpd ./web/modules/contrib/vercel_deploy/src --suffix .php --suffix .module --suffix .inc --suffix .install --suffix .test --suffix .profile --suffix .theme --suffix .css --suffix .info --suffix .txt --exclude *.md --exclude *.info.yml --exclude tests --exclude vendor/
+  ```
+
+#### Running PhpDeprecationDetector
+
+https://github.com/wapmorgan/PhpDeprecationDetector
+
+A scanner that checks compatibility of your code with PHP interpreter versions.
+
+  ```
+  $ docker-compose exec drupal phpdd ./web/modules/contrib/vercel_deploy/ \
+    --file-extensions php,module,inc,install,test,profile,theme,info --exclude vendor
   ```
 
 ### Enforce code standards with git hooks
 
 Maintaining code quality by adding the custom post-commit hook to yours.
 
-  ```
-  $ cat ./scripts/hooks/post-commit >> ./.git/hooks/post-commit
+  ```bash
+  cat ./scripts/hooks/post-commit >> ./.git/hooks/post-commit
   ```

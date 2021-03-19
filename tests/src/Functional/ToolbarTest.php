@@ -8,6 +8,7 @@ use Drupal\Tests\BrowserTestBase;
  * Tests vercel_deploy toolbar functionality.
  *
  * @group vercel_deploy
+ * @group vercel_deploy_functional
  */
 class ToolbarTest extends BrowserTestBase {
 

@@ -50,9 +50,11 @@ class ToolbarHandler implements ContainerInjectionInterface {
    */
   public function toolbar() {
 
-    $items['vercel_deploy'] = [
-      '#cache' => [
-        'contexts' => ['user.permissions'],
+    $items = [
+      'vercel_deploy' => [
+        '#cache' => [
+          'contexts' => ['user.permissions'],
+        ],
       ],
     ];
 
