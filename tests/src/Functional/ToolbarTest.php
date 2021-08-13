@@ -20,7 +20,7 @@ class ToolbarTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['toolbar', 'vercel_deploy'];
+  protected static $modules = ['toolbar', 'vercel_deploy'];
 
   /**
    * Tests that the toolbar button is visible.
