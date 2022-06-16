@@ -2,7 +2,7 @@
   title: 'Administer Vercel Deploy'
 
 'access vercel deploy-hook':
-  title: 'Acces Vercel deployment hook'
+  title: 'Access Vercel deployment hook'
 
 'see vercel deploy-hook button toolbar':
   title: 'See Vercel button toolbar'
