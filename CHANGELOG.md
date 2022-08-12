@@ -1,10 +1,14 @@
-CHANGELOG
----------
+# Changelog
+All notable changes to this project will be documented in this file.
 
-## NEXT RELEASE 
- - Issue #3285512 by bruno.bicudo, queenvictoria, wengerk: Typ-oh in permissions 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 1.0.0-rc1 (2020-08-10)
+## [Unreleased]
 
-  I'm proud to present the first alpha release of Vercel Deploy for Drupal 8.
-  Vercel Deploy module allows you to integrate Vercel deployments with Drupal.
+## [1.0.0-rc1] - (2020-08-10)
+### Added
+- first alpha release of Vercel Deploy
+
+[Unreleased]: https://github.com/antistatique/drupal-vercel-deploy/compare/1.0.0-rc1...HEAD
+[1.0.0-rc1]: https://github.com/antistatique/drupal-vercel-deploy/releases/tag/1.0.0-rc1
