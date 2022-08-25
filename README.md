@@ -24,7 +24,6 @@ clicking this button simply fires the Vercel Deploy process for the configured U
 
 This module works on both Drupal 8 and Drupal 9 !
 
-
 ## Dependencies
 
 The Drupal 8 & Drupal 9 version of this module requires nothing !
