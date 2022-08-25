@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - add dependabot for Github Action dependency
 - update changelog form to follow keepachangelog format
+- run tests CI (Github Actions) on all push
+- drop support of Drupal 8 and better support of Drupal 9+
+- add job Upgrade Status to Github Actions
+
+### Changed
+- disable deprecation notice PHPUnit
 
 ## [1.0.0-rc1] - (2020-08-10)
 ### Added
