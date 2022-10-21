@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - add official support of drupal 9.5 & 10.0
 
+### Removed
+- drop support of drupal below 9.3.x
+
 ## [1.0.0] - 2022-10-21
 ### Added
 - add dependabot for Github Action dependency
