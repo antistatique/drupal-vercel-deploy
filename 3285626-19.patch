@@ -1,0 +1,173 @@
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 851af6a..e5b912c 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -29,14 +29,17 @@ globally on your environment:
+ 
+ ### Project bootstrap
+ 
+-Once run, you will be able to access to your fresh installed Drupal on `http://localhost:8888/`.
++Once run, you will be able to access to your fresh installed Drupal on
++`http://localhost:8888/`.
+ 
+     docker-compose build --pull --build-arg BASE_IMAGE_TAG=9.0 drupal
+     (get a coffee, this will take some time...)
+     docker-compose up -d drupal
+-    docker-compose exec -u www-data drupal drush site-install standard --db-url="mysql://drupal:drupal@db/drupal" -y
++    docker-compose exec -u www-data drupal drush site-install standard
++    --db-url="mysql://drupal:drupal@db/drupal" -y
+ 
+-    # You may be interesed by reseting the admin passowrd of your Docker and install the module using those cmd.
++    # You may be interesed by reseting the admin passowrd of your Docker and
++    install the module using those cmd.
+     docker-compose exec drupal drush user:password admin admin
+     docker-compose exec drupal drush en vercel_deploy -y
+ 
+@@ -46,13 +49,16 @@ We use the [Docker for Drupal Contrib images](https://hub.docker.com/r/wengerk/d
+ 
+ Run testing by stopping at first failure using the following command:
+ 
+-    docker-compose exec -u www-data drupal phpunit --group=vercel_deploy --no-coverage --stop-on-failure --configuration=/var/www/html/phpunit.xml
++    docker-compose exec -u www-data drupal phpunit --group=vercel_deploy
++    --no-coverage --stop-on-failure --configuration=/var/www/html/phpunit.xml
+ 
+ ## 🚔 Check Drupal coding standards & Drupal best practices
+ 
+-During Docker build, the following Static Analyzers will be installed on the Docker `drupal` via Composer:
++During Docker build, the following Static Analyzers will be installed on the
++Docker `drupal` via Composer:
+ 
+-- `drupal/coder^8.3.1`  (including `squizlabs/php_codesniffer` & `phpstan/phpstan`),
++- `drupal/coder^8.3.1`  (including `squizlabs/php_codesniffer` &
++`phpstan/phpstan`),
+ 
+ The following Analyzer will be downloaded & installed as PHAR:
+ 
+@@ -70,19 +76,23 @@ The following Analyzer will be downloaded & installed as PHAR:
+ 
+ https://github.com/squizlabs/PHP_CodeSniffer
+ 
+-PHP_CodeSniffer is a set of two PHP scripts; the main `phpcs` script that tokenizes PHP, JavaScript and CSS files to
+-detect violations of a defined coding standard, and a second `phpcbf` script to automatically correct coding standard
++PHP_CodeSniffer is a set of two PHP scripts; the main `phpcs` script that
++tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding
++standard, and a second `phpcbf` script to automatically correct coding standard
+ violations.
+-PHP_CodeSniffer is an essential development tool that ensures your code remains clean and consistent.
++PHP_CodeSniffer is an essential development tool that ensures your code remains
++clean and consistent.
+ 
+   ```
+-  $ docker-compose exec drupal ./vendor/bin/phpcs ./web/modules/contrib/vercel_deploy/
++  $ docker-compose exec drupal ./vendor/bin/phpcs
++  ./web/modules/contrib/vercel_deploy/
+   ```
+ 
+ Automatically fix coding standards
+ 
+   ```
+-  $ docker-compose exec drupal ./vendor/bin/phpcbf ./web/modules/contrib/vercel_deploy/
++  $ docker-compose exec drupal ./vendor/bin/phpcbf
++  ./web/modules/contrib/vercel_deploy/
+   ```
+ 
+ #### Running PHP Mess Detector
+@@ -92,8 +102,10 @@ https://github.com/phpmd/phpmd
+ Detect overcomplicated expressions & Unused parameters, methods, properties.
+ 
+   ```
+-  $ docker-compose exec drupal phpmd ./web/modules/contrib/vercel_deploy/ text ./phpmd.xml \
+-  --suffixes php,module,inc,install,test,profile,theme,css,info,txt --exclude *Test.php,*vendor/*
++  $ docker-compose exec drupal phpmd ./web/modules/contrib/vercel_deploy/ text
++  ./phpmd.xml \
++  --suffixes php,module,inc,install,test,profile,theme,css,info,txt --exclude
++  *Test.php,*vendor/*
+   ```
+ 
+ #### Running PHP Copy/Paste Detector
+@@ -103,7 +115,10 @@ https://github.com/sebastianbergmann/phpcpd
+ `phpcpd` is a Copy/Paste Detector (CPD) for PHP code.
+ 
+   ```
+-  $ docker-compose exec drupal phpcpd ./web/modules/contrib/vercel_deploy/src --suffix .php --suffix .module --suffix .inc --suffix .install --suffix .test --suffix .profile --suffix .theme --suffix .css --suffix .info --suffix .txt --exclude *.md --exclude *.info.yml --exclude tests --exclude vendor/
++  $ docker-compose exec drupal phpcpd ./web/modules/contrib/vercel_deploy/src
++  --suffix .php --suffix .module --suffix .inc --suffix .install --suffix .test
++  --suffix .profile --suffix .theme --suffix .css --suffix .info --suffix .txt
++  --exclude *.md --exclude *.info.yml --exclude tests --exclude vendor/
+   ```
+ 
+ #### Running PhpDeprecationDetector
+@@ -114,7 +129,8 @@ A scanner that checks compatibility of your code with PHP interpreter versions.
+ 
+   ```
+   $ docker-compose exec drupal phpdd ./web/modules/contrib/vercel_deploy/ \
+-    --file-extensions php,module,inc,install,test,profile,theme,info --exclude vendor
++    --file-extensions php,module,inc,install,test,profile,theme,info --exclude
++    vendor
+   ```
+ 
+ ### Enforce code standards with git hooks
+diff --git a/README.md b/README.md
+index a9bff0e..05e03d1 100644
+--- a/README.md
++++ b/README.md
+@@ -11,14 +11,18 @@ This module allows you to integrate Vercel deployments with Drupal.
+ ## Usage of Vercel Deploy
+ 
+   - Forced deployments from the Drupal User Interface.
+-  - (soon) Automatic deployments by hooking into content changes in Headless projects.
+-  - (soon) Scheduled deployments by configuring third-party cron job services to trigger the Drush Deploy Hook.
++  - (soon) Automatic deployments by hooking into content changes in Headless
++  projects.
++  - (soon) Scheduled deployments by configuring third-party cron job services to
++  trigger the Drush Deploy Hook.
+   - (soon) Forced deployments from the command line Drush.
+ 
+-One of the most used feature is the nice and big "Vercel Deploy" admin toolbar button.
++One of the most used feature is the nice and big "Vercel Deploy" admin toolbar
++button.
+ 
+-Users with the proper permissions (`vercel deploy button` and `vercel deploy access`) will see an Admin Toolbar button,
+-clicking this button simply fires the Vercel Deploy process for the configured URLs.
++Users with the proper permissions (`vercel deploy button` and
++`vercel deploy access`) will see an Admin Toolbar button, clicking this button
++simply fires the Vercel Deploy process for the configured URLs.
+ 
+ ## Versions
+ 
+@@ -31,7 +35,8 @@ Feel free to use it.
+ 
+ ## Supporting organizations
+ 
+-This project is sponsored by [Antistatique](https://www.antistatique.net), a Swiss Web Agency.
++This project is sponsored by [Antistatique](https://www.antistatique.net), a
++Swiss Web Agency.
+ Visit us at [www.antistatique.net](https://www.antistatique.net) or
+ [Contact us](mailto:info@antistatique.net).
+ 
+diff --git a/config/install/vercel_deploy.settings.yml b/config/install/vercel_deploy.settings.yml
+index 54f9aa7..2ee7291 100644
+--- a/config/install/vercel_deploy.settings.yml
++++ b/config/install/vercel_deploy.settings.yml
+@@ -1,2 +1 @@
+ deploy_hooks_urls: { }
+-
+diff --git a/vercel_deploy.permissions.yml b/vercel_deploy.permissions.yml
+index eb41100..8ff87bc 100644
+--- a/vercel_deploy.permissions.yml
++++ b/vercel_deploy.permissions.yml
+@@ -6,5 +6,3 @@
+ 
+ 'see vercel deploy-hook button toolbar':
+   title: 'See Vercel button toolbar'
+-
+-
+diff --git a/vercel_deploy.routing.yml b/vercel_deploy.routing.yml
+index c0af9ac..6625e3d 100644
+--- a/vercel_deploy.routing.yml
++++ b/vercel_deploy.routing.yml
+@@ -23,4 +23,3 @@ vercel_deploy.deploy_hooks:
+     _admin_route: TRUE
+   requirements:
+     _permission: 'access vercel deploy-hook'
+-
