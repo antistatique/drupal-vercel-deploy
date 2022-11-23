@@ -39,7 +39,7 @@ Once run, you will be able to access to your fresh installed Drupal on
     --db-url="mysql://drupal:drupal@db/drupal" -y
 
     # You may be interesed by reseting the admin passowrd of your Docker and
-    install the module using those cmd.
+    # install the module using those cmd.
     docker-compose exec drupal drush user:password admin admin
     docker-compose exec drupal drush en vercel_deploy -y
 
@@ -102,8 +102,9 @@ https://github.com/phpmd/phpmd
 Detect overcomplicated expressions & Unused parameters, methods, properties.
 
   ```
-  $ docker-compose exec drupal phpmd ./web/modules/contrib/vercel_deploy/ text
-  ./phpmd.xml \ --suffixes php,module,inc,install,test,profile,theme,css,info,txt
+  $ docker-compose exec drupal phpmd ./web/modules/contrib/vercel_deploy/ text \
+  ./phpmd.xml \
+  --suffixes php,module,inc,install,test,profile,theme,css,info,txt \
   --exclude *Test.php,*vendor/*
   ```
 
@@ -128,8 +129,8 @@ A scanner that checks compatibility of your code with PHP interpreter versions.
 
   ```
   $ docker-compose exec drupal phpdd ./web/modules/contrib/vercel_deploy/ \
-    --file-extensions php,module,inc,install,test,profile,theme,info --exclude
-    vendor
+    --file-extensions php,module,inc,install,test,profile,theme,info \
+    --exclude vendor
   ```
 
 ### Enforce code standards with git hooks
