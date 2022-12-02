@@ -23,4 +23,3 @@ vercel_deploy.deploy_hooks:
     _admin_route: TRUE
   requirements:
     _permission: 'access vercel deploy-hook'
-

@@ -11,14 +11,18 @@ This module allows you to integrate Vercel deployments with Drupal.
 ## Usage of Vercel Deploy
 
   - Forced deployments from the Drupal User Interface.
-  - (soon) Automatic deployments by hooking into content changes in Headless projects.
-  - (soon) Scheduled deployments by configuring third-party cron job services to trigger the Drush Deploy Hook.
+  - (soon) Automatic deployments by hooking into content changes in Headless
+  projects.
+  - (soon) Scheduled deployments by configuring third-party cron job services to
+  trigger the Drush Deploy Hook.
   - (soon) Forced deployments from the command line Drush.
 
-One of the most used feature is the nice and big "Vercel Deploy" admin toolbar button.
+One of the most used feature is the nice and big "Vercel Deploy" admin toolbar
+button.
 
-Users with the proper permissions (`vercel deploy button` and `vercel deploy access`) will see an Admin Toolbar button,
-clicking this button simply fires the Vercel Deploy process for the configured URLs.
+Users with the proper permissions (`vercel deploy button` and
+`vercel deploy access`) will see an Admin Toolbar button, clicking this button
+simply fires the Vercel Deploy process for the configured URLs.
 
 ## Versions
 
