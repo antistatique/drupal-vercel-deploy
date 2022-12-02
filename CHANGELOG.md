@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - drop support of drupal below 9.3.x
 - remove satackey/action-docker-layer-caching on Github Actions
 
+### Fixed
+- issue #3285626 by viniciuscosta, mrinalini9, bruno.bicudo, akshaydalvi212, sourabhjain, Arturo1007, wengerk, RenatoCostaDev, beatrizramos: Fix Coding Standards
+
 ## [1.0.0] - 2022-10-21
 ### Added
 - add dependabot for Github Action dependency

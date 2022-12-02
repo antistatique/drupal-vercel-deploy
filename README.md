@@ -1,6 +1,6 @@
 # Vercel Deploy
 
-A Drupal 8 powered module.
+A Drupal powered module.
 
 |       Test-CI        |        Style-CI         |        Downloads        |         Releases         |
 |:----------------------:|:-----------------------:|:-----------------------:|:------------------------:|
