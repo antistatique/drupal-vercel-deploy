@@ -33,29 +33,16 @@ This module works on both Drupal 8, Drupal 9 & Drupal 10 !
 The Drupal 8, Drupal 9 & Drupal 10 version of this module requires nothing !
 Feel free to use it.
 
-## Supporting organizations
-
-This project is sponsored by [Antistatique](https://www.antistatique.net), a Swiss Web Agency.
-Visit us at [www.antistatique.net](https://www.antistatique.net) or
-[Contact us](mailto:info@antistatique.net).
-
 ## Getting Started
 
 We highly recommend you to install the module using `composer`.
-
-<h2>Getting Started</h2>
-
 
 ```bash
 $ composer require drupal/vercel_deploy
 ```
 
-You can also install it using the `drush` or `drupal console` cli.
+## Supporting organizations
 
-```bash
-$ drush dl vercel_deploy
-```
-
-```bash
-$ drupal module:install vercel_deploy
- ```
+This project is sponsored by [Antistatique](https://www.antistatique.net), a Swiss Web Agency.
+Visit us at [www.antistatique.net](https://www.antistatique.net) or
+[Contact us](mailto:info@antistatique.net).
