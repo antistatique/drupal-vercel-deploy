@@ -4,8 +4,8 @@
  */
 
 .toolbar .toolbar-tray-vertical .edit-vercel-deploy-toolbar {
-  text-align: right; /* LTR */
   padding: 1em;
+  text-align: right; /* LTR */
 }
 
 [dir="rtl"] .toolbar .toolbar-tray-vertical .edit-vercel-deploy-toolbar {
@@ -28,12 +28,12 @@
   float: right;
 }
 
-.toolbar .toolbar-bar .toolbar-icon-vercel-deploy:before {
+.toolbar .toolbar-bar .toolbar-icon-vercel-deploy::before {
   background-image: url(../icons/vercel.svg);
 }
 
-.toolbar-bar .toolbar-icon-vercel-deploy:active:before,
-.toolbar-bar .toolbar-icon-vercel-deploy.is-active:before {
+.toolbar-bar .toolbar-icon-vercel-deploy:active::before,
+.toolbar-bar .toolbar-icon-vercel-deploy.is-active::before {
   background-image: url(../icons/vercel.svg);
 }
 
