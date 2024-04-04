@@ -2,12 +2,12 @@
 
 namespace Drupal\vercel_deploy\Form;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Url;
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides the Deploy Hooks confirmation form.
