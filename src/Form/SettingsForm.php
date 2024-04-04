@@ -2,9 +2,9 @@
 
 namespace Drupal\vercel_deploy\Form;
 
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Component\Utility\Xss;
 
 /**
  * Configure Vercel Deploy settings form.
