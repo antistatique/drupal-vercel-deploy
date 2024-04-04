@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - add coverage of Drupal 10.2.x
+- add Drupal GitlabCI
 
 ### Removed
 - drop tests support on Drupal <= 9.4
