@@ -10,15 +10,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - add Drupal GitlabCI
 - add phpstan.neon in order to ignore new static() errors
 - add cpsell prject words for Gitlab-CI
+- add official stable support for drupal 10.4
+- add official stable support for drupal 11.1
 
 ### Removed
 - drop tests support on Drupal <= 9.4
+- remove legacy version annotation on docker-compose.yml
 
 ### Fixed
 - fix phpcs use statements sorted alphabetically
+- fix usage of print_r
 
 ### Changed
 - run & fix css using stylelintrc from Drupal core
+- update Docker MariaDB 10.3 -> 10.6
 
 ## [1.1.0] - 2022-12-02
 ### Added
