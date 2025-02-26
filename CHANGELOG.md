@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - fix phpcs use statements sorted alphabetically
+- fix usage of print_r
 
 ### Changed
 - run & fix css using stylelintrc from Drupal core
