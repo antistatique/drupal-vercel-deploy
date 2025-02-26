@@ -15,12 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - drop tests support on Drupal <= 9.4
+- remove legacy version annotation on docker-compose.yml
 
 ### Fixed
 - fix phpcs use statements sorted alphabetically
 
 ### Changed
 - run & fix css using stylelintrc from Drupal core
+- update Docker MariaDB 10.3 -> 10.6
 
 ## [1.1.0] - 2022-12-02
 ### Added
