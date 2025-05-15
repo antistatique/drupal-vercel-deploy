@@ -26,12 +26,7 @@ simply fires the Vercel Deploy process for the configured URLs.
 
 ## Versions
 
-This module works on both Drupal 8, Drupal 9 & Drupal 10 !
-
-## Dependencies
-
-The Drupal 8, Drupal 9 & Drupal 10 version of this module requires nothing !
-Feel free to use it.
+This module works on Drupal 8, Drupal 9, Drupal 10 & Drupal 11 !
 
 ## Getting Started
 
