@@ -1,4 +1,4 @@
-ARG BASE_IMAGE_TAG=10.2
+ARG BASE_IMAGE_TAG=10.4
 FROM wengerk/drupal-for-contrib:${BASE_IMAGE_TAG}
 
 # Disable deprecation notice.
