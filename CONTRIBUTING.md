@@ -34,7 +34,7 @@ globally on your environment:
 Once run, you will be able to access to your fresh installed Drupal on
 `http://localhost:8888/`.
 
-    docker compose build --pull --build-arg BASE_IMAGE_TAG=10.4 drupal
+    docker compose build --pull --build-arg BASE_IMAGE_TAG=11.2 drupal
     # (get a coffee, this will take some time...)
     docker compose up -d drupal
     docker compose exec -u www-data drupal drush site-install standard \
