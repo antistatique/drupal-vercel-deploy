@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - add official support of drupal 10.5
 - add official support of drupal 11.2
 
+### Fixed
+- fix dependabot file
+
 ### Removed
 - drop coverage of Drupal 10.0.x
 - drop coverage of Drupal 10.1.x
