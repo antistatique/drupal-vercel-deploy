@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - add official support of drupal 10.6
 - add official support of drupal 11.3
 
+### Changed
+- add sirbrillig to cspell words
+
 ## [1.3.1] - 2025-11-07
 ### Added
 - add official support of drupal 10.5

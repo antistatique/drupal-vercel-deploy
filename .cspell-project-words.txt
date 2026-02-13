@@ -16,3 +16,4 @@ rulesets
 unusedcode
 wapmorgan
 wengerk
+sirbrillig
