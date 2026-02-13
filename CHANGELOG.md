@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- add official support of drupal 10.6
+- add official support of drupal 11.3
+
+### Changed
+- add sirbrillig to cspell words
+- deprecation Notice: Function curl_close is deprecated since 8.5 what a NOP since 8.0.0
 
 ## [1.3.1] - 2025-11-07
 ### Added
