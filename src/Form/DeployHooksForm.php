@@ -143,7 +143,6 @@ class DeployHooksForm extends ConfirmFormBase {
 
     // Receive server response.
     $response = curl_exec($curl);
-    curl_close($curl);
 
     $decoded = json_decode($response, TRUE);
 
