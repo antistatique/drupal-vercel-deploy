@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - add experimental coverage of Drupal 11.4
 
+### Changed
+- add PHPUnit 10 PHP attributes (`#[RunTestsInSeparateProcesses]`) to all test classes
+- run upgrade-status against Drupal 11.3
+
 ## [1.3.2] - 2026-02-13
 ### Added
 - add official support of drupal 10.6
