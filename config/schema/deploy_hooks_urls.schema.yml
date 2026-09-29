@@ -6,5 +6,5 @@ vercel_deploy.settings:
       type: sequence
       label: 'Vercel Deploy Hooks URLs'
       sequence:
-        - type: string
-          label: 'Deploy Hooks URL'
+        type: string
+        label: 'Deploy Hooks URL'
