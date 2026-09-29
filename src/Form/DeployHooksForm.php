@@ -7,6 +7,7 @@ use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Url;
+use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -126,27 +127,26 @@ final class DeployHooksForm extends ConfirmFormBase {
    *   The sandbox context.
    */
   public static function batchProcess(int $id, string $url, &$context) {
-    sleep(1);
     $context['sandbox']['current'] = $id;
-
-    if (empty($context['sandbox'])) {
-      $context['sandbox']['count'] = 0;
-    }
-
-    $context['sandbox']['count'] += 1;
+    $context['sandbox']['count'] = ($context['sandbox']['count'] ?? 0) + 1;
     $context['message'] = new TranslatableMarkup('Initialize a new Vercel deployment for %url.', ['%url' => $url]);
 
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_POST, 1);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    try {
+      $response = \Drupal::httpClient()->post($url, ['timeout' => 30, 'http_errors' => TRUE]);
+      $status = $response->getStatusCode();
+      $decoded = ($status >= 200 && $status < 300)
+        ? json_decode((string) $response->getBody(), TRUE)
+        : NULL;
+    }
+    catch (GuzzleException $e) {
+      \Drupal::logger('vercel_deploy')->error('Vercel deploy hook failed for @url: @message', [
+        '@url' => $url,
+        '@message' => $e->getMessage(),
+      ]);
+      $decoded = NULL;
+    }
 
-    // Receive server response.
-    $response = curl_exec($curl);
-
-    $decoded = json_decode($response, TRUE);
-
-    if ($decoded['job']['state'] === 'PENDING') {
+    if (($decoded['job']['state'] ?? NULL) === 'PENDING') {
       $context['results']['deploy'][] = $url;
     }
     else {
