@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - build(docker): use Drupal 11.3 as default base image
 - ci(styles): run code styles jobs on PHP 8.4
 - fix permission names and supported Drupal versions in README
+- test(phpunit): add Group attributes next to @group annotations
 - ci(phpcs): exclude generated gitlab_templates_version.txt
 - fix(gitlab-ci): strip all PHPUnit attributes for phpstan on previous major
 - docs(gitlab-ci): refresh outdated Drupal versions in comments

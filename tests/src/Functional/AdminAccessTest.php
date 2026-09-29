@@ -8,6 +8,9 @@ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
  * Tests the access to the Vercel Deploy administration pages.
+ *
+ * @group vercel_deploy
+ * @group vercel_deploy_functional
  */
 #[Group('vercel_deploy')]
 #[Group('vercel_deploy_functional')]

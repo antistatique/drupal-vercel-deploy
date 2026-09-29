@@ -3,6 +3,7 @@
 namespace Drupal\Tests\vercel_deploy\Functional;
 
 use Drupal\Tests\BrowserTestBase;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
@@ -11,6 +12,8 @@ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
  * @group vercel_deploy
  * @group vercel_deploy_functional
  */
+#[Group('vercel_deploy')]
+#[Group('vercel_deploy_functional')]
 #[RunTestsInSeparateProcesses]
 class ToolbarTest extends BrowserTestBase {
 
