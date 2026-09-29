@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - ci(phpcs): exclude generated gitlab_templates_version.txt
 
+### Fixed
+- add codesniffer to the cspell project dictionary
+
 ## [1.3.3] - 2026-05-18
 ### Added
 - add experimental coverage of Drupal 11.4
