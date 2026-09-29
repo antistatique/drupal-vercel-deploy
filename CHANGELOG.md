@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - add codesniffer to the cspell project dictionary
+- fix(routing): drop non-existing permission from the overview route
 
 ## [1.3.3] - 2026-05-18
 ### Added
