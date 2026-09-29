@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix(settings): validate deploy hook URLs
 - fix(config): declare the deploy hooks sequence schema with the current syntax
 - fix(deploy): handle failing deploy hook requests
+- fix(deploy): report non-secret details on batch failure
 
 ## [1.3.3] - 2026-05-18
 ### Added

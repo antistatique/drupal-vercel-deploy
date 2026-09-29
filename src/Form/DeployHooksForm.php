@@ -169,10 +169,12 @@ final class DeployHooksForm extends ConfirmFormBase {
     $messenger = \Drupal::service('messenger');
 
     if (!$success) {
+      // Do not expose the operation arguments, they contain the secret URL of
+      // the deploy hook.
       $error_operation = reset($operations);
-      $messenger->addMessage(new TranslatableMarkup('An error occurred while processing @operation with arguments : @args', [
+      $messenger->addError(new TranslatableMarkup('An error occurred while processing @operation for the deploy hook number @number.', [
         '@operation' => $error_operation[0],
-        '@args' => print_r($error_operation[0], TRUE),
+        '@number' => isset($error_operation[1][0]) ? (int) $error_operation[1][0] + 1 : '?',
       ]));
       return;
     }
