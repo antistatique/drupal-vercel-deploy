@@ -4,7 +4,7 @@ vercel_deploy:
     _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
     _title: 'Vercel Deploy'
   requirements:
-    _permission: 'administer vercel deploy+access vercel deploy-hook+vercel deploy-hook button toolbar'
+    _permission: 'administer vercel deploy+access vercel deploy-hook'
 
 vercel_deploy.settings:
   path: '/admin/config/development/vercel-deploy/settings'

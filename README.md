@@ -20,13 +20,13 @@ This module allows you to integrate Vercel deployments with Drupal.
 One of the most used feature is the nice and big "Vercel Deploy" admin toolbar
 button.
 
-Users with the proper permissions (`vercel deploy button` and
-`vercel deploy access`) will see an Admin Toolbar button, clicking this button
+Users with the proper permissions (`see vercel deploy-hook button toolbar` and
+`access vercel deploy-hook`) will see an Admin Toolbar button, clicking this button
 simply fires the Vercel Deploy process for the configured URLs.
 
 ## Versions
 
-This module works on Drupal 8, Drupal 9, Drupal 10 & Drupal 11 !
+This module works on Drupal 10.5+, Drupal 11 & Drupal 12 !
 
 ## Getting Started
 

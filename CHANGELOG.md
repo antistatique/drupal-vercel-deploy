@@ -7,10 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - build(docker): use Drupal 11.3 as default base image
+- ci(styles): run code styles jobs on PHP 8.4
+- fix permission names and supported Drupal versions in README
 - ci(phpcs): exclude generated gitlab_templates_version.txt
 
 ### Fixed
 - add codesniffer to the cspell project dictionary
+- fix(routing): drop non-existing permission from the overview route
 
 ## [1.3.3] - 2026-05-18
 ### Added
