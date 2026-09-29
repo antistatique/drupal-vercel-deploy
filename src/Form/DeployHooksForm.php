@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @internal
  */
-class DeployHooksForm extends ConfirmFormBase {
+final class DeployHooksForm extends ConfirmFormBase {
 
   /**
    * A config object for the Cardis REST reCAPTCHA configuration.
@@ -44,7 +44,7 @@ class DeployHooksForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static(
+    return new self(
       $container->get('config.factory')
     );
   }

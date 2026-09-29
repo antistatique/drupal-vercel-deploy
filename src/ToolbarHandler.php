@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Toolbar integration handler.
  */
-class ToolbarHandler implements ContainerInjectionInterface {
+final class ToolbarHandler implements ContainerInjectionInterface {
   use StringTranslationTrait;
 
   /**
@@ -35,7 +35,7 @@ class ToolbarHandler implements ContainerInjectionInterface {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static(
+    return new self(
       $container->get('current_user')
     );
   }

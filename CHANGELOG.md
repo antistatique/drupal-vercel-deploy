@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ci(styles): run code styles jobs on PHP 8.4
 - fix permission names and supported Drupal versions in README
 - test(phpunit): add Group attributes next to @group annotations
+- refactor(php): mark internal classes as final
 - ci(phpcs): exclude generated gitlab_templates_version.txt
 - fix(gitlab-ci): strip all PHPUnit attributes for phpstan on previous major
 - docs(gitlab-ci): refresh outdated Drupal versions in comments
