@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- ci(styles): run code styles jobs on PHP 8.4
 - fix permission names and supported Drupal versions in README
 - ci(phpcs): exclude generated gitlab_templates_version.txt
 
