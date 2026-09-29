@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- build(docker): use Drupal 11.3 as default base image
 - ci(phpcs): exclude generated gitlab_templates_version.txt
 
 ### Fixed
