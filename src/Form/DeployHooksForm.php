@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 final class DeployHooksForm extends ConfirmFormBase {
 
   /**
-   * A config object for the Cardis REST reCAPTCHA configuration.
+   * The Vercel Deploy settings.
    *
    * @var \Drupal\Core\Config\Config
    */
