@@ -52,4 +52,7 @@ phpcs:
 
 phpstan (previous major):
   before_script:
+    - find $DRUPAL_PROJECT_FOLDER/tests/src -name '*.php' -exec sed -i '/^[[:space:]]*#\[Group(/d' {} +
     - find $DRUPAL_PROJECT_FOLDER/tests/src -name '*.php' -exec sed -i '/^[[:space:]]*#\[RunTestsInSeparateProcesses/d' {} +
+    - find $DRUPAL_PROJECT_FOLDER/tests/src -name '*.php' -exec sed -i '/^[[:space:]]*#\[CoversClass(/d' {} +
+    - find $DRUPAL_PROJECT_FOLDER/tests/src -name '*.php' -exec sed -i '/^[[:space:]]*#\[CoversMethod(/d' {} +
