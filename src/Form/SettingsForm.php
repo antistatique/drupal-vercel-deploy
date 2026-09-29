@@ -2,7 +2,7 @@
 
 namespace Drupal\vercel_deploy\Form;
 
-use Drupal\Component\Utility\Xss;
+use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -52,18 +52,39 @@ class SettingsForm extends ConfigFormBase {
   }
 
   /**
+   * Splits the textarea value into a list of trimmed non-empty URLs.
+   *
+   * @param string $value
+   *   The raw textarea value.
+   *
+   * @return string[]
+   *   The URLs.
+   */
+  protected function parseUrls(string $value): array {
+    $urls = preg_split('/\R/', $value) ?: [];
+    return array_values(array_filter(array_map('trim', $urls), 'strlen'));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    foreach ($this->parseUrls($form_state->getValue(['vercel_deploy_urls', 'urls'])) as $url) {
+      if (!UrlHelper::isValid($url, TRUE) || !str_starts_with($url, 'https://')) {
+        $form_state->setErrorByName('vercel_deploy_urls][urls', $this->t('%url is not a valid HTTPS URL.', ['%url' => $url]));
+      }
+    }
+
+    parent::validateForm($form, $form_state);
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $values = $form_state->getValues();
-
-    $urls = explode(PHP_EOL, $values['vercel_deploy_urls']['urls']);
-    $deploy_hooks_urls = array_map(static function ($item) {
-      return trim(Xss::filter($item, []));
-    }, $urls);
-
-    $config = $this->config('vercel_deploy.settings');
-    $config->set('deploy_hooks_urls', $deploy_hooks_urls)->save();
+    $this->config('vercel_deploy.settings')
+      ->set('deploy_hooks_urls', $this->parseUrls($form_state->getValue(['vercel_deploy_urls', 'urls'])))
+      ->save();
 
     parent::submitForm($form, $form_state);
   }
