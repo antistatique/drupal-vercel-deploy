@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.3.4] - 2026-10-15
 ### Changed
 - build(docker): use Drupal 11.3 as default base image
 - ci(styles): run code styles jobs on PHP 8.4
@@ -106,7 +108,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - first alpha release of Vercel Deploy
 
-[Unreleased]: https://github.com/antistatique/drupal-vercel-deploy/compare/1.3.3...HEAD
+[Unreleased]: https://github.com/antistatique/drupal-vercel-deploy/compare/1.3.4...HEAD
+[1.3.4]: https://github.com/antistatique/drupal-vercel-deploy/compare/1.3.3...1.3.4
 [1.3.3]: https://github.com/antistatique/drupal-vercel-deploy/compare/1.3.2...1.3.3
 [1.3.2]: https://github.com/antistatique/drupal-vercel-deploy/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/antistatique/drupal-vercel-deploy/compare/1.3.0...1.3.1
