@@ -7,14 +7,11 @@ Cyclomatic
 interesed
 libbz
 passowrd
-phpcf
 PHPCPD
 phpcpd
-phpdd
 reseting
 rulesets
 unusedcode
-wapmorgan
 wengerk
 sirbrillig
 codesniffer
